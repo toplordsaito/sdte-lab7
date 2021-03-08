@@ -1,0 +1,18 @@
+- hosts: host01
+  tasks:
+  - name: "copy website"
+    copy:
+      src: site/1/
+      dest: /var/www/default
+- hosts: host02
+  tasks:
+  - name: "copy website"
+    copy:
+      src: site/2/
+      dest: /var/www/default
+- hosts: host03
+  tasks:
+  - name: "copy website"
+    copy:
+      src: site/3/
+      dest: /var/www/default
