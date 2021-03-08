@@ -1,18 +1,28 @@
 - hosts: host01
   tasks:
   - name: "copy website"
-    copy:
-      src: site/1/
-      dest: /var/www/default
+    become: yes
+    become_user: root
+    replace: 
+      path: /var/www/default/index.html
+      regexp: 'World'
+      replace: 'HOST1'
+      backup: yes 
 - hosts: host02
-  tasks:
   - name: "copy website"
-    copy:
-      src: site/2/
-      dest: /var/www/default
+    become: yes
+    become_user: root
+    replace: 
+      path: /var/www/default/index.html
+      regexp: 'World'
+      replace: 'HOST3'
+      backup: yes 
 - hosts: host03
-  tasks:
   - name: "copy website"
-    copy:
-      src: site/3/
-      dest: /var/www/default
+    become: yes
+    become_user: root
+    replace: 
+      path: /var/www/default/index.html
+      regexp: 'World'
+      replace: 'HOST2'
+      backup: yes 
